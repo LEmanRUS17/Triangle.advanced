@@ -1,0 +1,16 @@
+Yii2 версия advanced
+
+Установка: https://webformyself.com/yii2-advanced-ustanovka/
+Настройка: https://webformyself.com/yii2-advanced-nastrojka/
+
+.htaccess : https://coderius.biz.ua/blog/article/nastrojka-htaccess-v-yii2
+Добавлены: .htaccess в корень проекта, папки frontend/web и backend/web
+
+Настроен i18n: https://thecodeninja.net/2014/12/i18n-with-yii-2-advanced-template/
+Файлы переводов common/messages/
+
+В beckend добавлен модуль 'blog' для работы со статьями
+Реализован i18n
+
+В beckend добавлен модуль 'user' для работы с пользователями
+Реализован i18n
