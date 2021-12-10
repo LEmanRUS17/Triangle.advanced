@@ -44,10 +44,12 @@ use yii\helpers\Url;
         <?php else : ?>
             <li class="dropdown"><a href="<?= Url::toRoute(['/user/profile/index']) ?>"><?= Yii::t('frontend', 'NAV_PROFILE') ?> (<?= Yii::$app->user->identity->username ?>) <i class="fa fa-angle-down"></i></a>
                 <ul role="menu" class="sub-menu">
+                    <li><a href="<?= yii\helpers\Url::toRoute(['/blog/article/create']) ?>"><?= Yii::t('frontend', 'NAV_ARTICLE_CREATE') ?></a></li>
                     <li><a href="<?= yii\helpers\Url::toRoute(['/user/default/logout']) ?>"><?= Yii::t('frontend', 'NAV_LOGOUT') ?></a></li>
-                    <li><a href="<?= yii\helpers\Url::toRoute(['/user/profile/index']) ?>"><?= Yii::t('frontend', 'NAV_PROFILE') ?></a></li>
+
+<!--                    <li><a href="--><?//= yii\helpers\Url::toRoute(['/user/profile/index']) ?><!--">--><?//= Yii::t('frontend', 'NAV_PROFILE') ?><!--</a></li>-->
                     <?//php if(Yii::$app->user->can('admin')): ?>
-                    <li><a href="<?= yii\helpers\Url::toRoute(['/admin/default/index']) ?>"><?= Yii::t('frontend', 'NAV_ADMIN') ?></a></li>
+<!--                    <li><a href="--><?//= yii\helpers\Url::toRoute(['/admin/default/index']) ?><!--">--><?//= Yii::t('frontend', 'NAV_ADMIN') ?><!--</a></li>-->
                     <?//php endif; ?>
                 </ul>
             </li>

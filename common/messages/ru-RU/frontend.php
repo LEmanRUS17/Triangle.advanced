@@ -28,6 +28,7 @@ return [
     'NAV_LOGOUT'     => 'Выход',
     'NAV_PROFILE'    => 'Профиль',
     'NAV_ADMIN'      => 'Администрирование',
+    'NAV_ARTICLE_CREATE' => 'Создание публикации',
 
     'NAV_ABOUT' => '',
     'NAV_ABOUT2' => '',
