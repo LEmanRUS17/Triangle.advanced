@@ -10,8 +10,13 @@ return [
     'id' => 'app-frontend',
     'language'     => 'ru-RU',          // Язык
     'name'         => 'Triangle',       // Название сайта
+    'defaultRoute' => 'site/index',     // Дефолтный маршрут при запуске сайта
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'layout'       => 'main',           // Шаблон по умолчанию
+    'bootstrap' => [
+        'log',
+        'app\modules\blog\Bootstrap',
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'modules' => [
         'blog' => [
@@ -44,14 +49,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => false, // Включить строгий разбор UPL. https://www.yiiframework.com/doc/api/2.0/yii-web-urlmanager#$enableStrictParsing-detail
             'rules' => [
+                '/' => 'site/index',
+                'blog' => 'blog/default/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

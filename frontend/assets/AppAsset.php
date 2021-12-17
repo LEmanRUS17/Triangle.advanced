@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'js/lightbox.min.js',
         'js/wow.min.js',
         'js/main.js',
+        'js/snowflakes.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

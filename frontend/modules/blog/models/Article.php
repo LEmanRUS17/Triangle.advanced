@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models;
 
+use app\modules\blog\Module;
 use Yii;
 
 /**
@@ -9,7 +10,6 @@ use Yii;
  *
  * @property int $id
  * @property string|null $title
- * @property string|null $description
  * @property string|null $content
  * @property string|null $date
  * @property string|null $viewed
@@ -32,9 +32,16 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date'], 'safe'],
-            [['title', 'description', 'content'], 'string', 'max' => 255],
-            [['viewed', 'status', 'category_id'], 'string', 'max' => 11],
+            [['title', 'content'], 'required'], // Заголовок, содержание | Обязателен
+            [['title', 'content'], 'string'], // Заголовок, описание, содержание | Строка
+            ['title', 'string', 'max' => 255], // Заголовок | Максимальное количество символов: 255
+            ['date',  'date', 'format' => 'php: Y-m-d G:i:s'], // Дата | Дата, формат: Год-месяц-день час:минута
+            ['date',  'default', 'value' => date('Y-m-d G:i:s')], // Дата | Значение по умолчанию: текущая дата
+            ['author_id', 'integer'], // Автор | Входное значение типа "integer"
+            ['author_id', 'default', 'value' => $_SESSION['__id']], // Автор | id залогиневшегося пользователя
+            ['category_id', 'default', 'value' => 1], // Категория | Значение по умолчанию "1"
+            ['status', 'default', 'value' => 1], // Статус | Значение по умолчанию "1"
+            ['viewed', 'default', 'value' => 0], // Просмотры | Значение по умолчанию "0"
         ];
     }
 
@@ -44,15 +51,14 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'content' => 'Content',
-            'date' => 'Date',
-            'viewed' => 'Viewed',
-            'status' => 'Status',
-            'category_id' => 'Category ID',
-            'author_id' => 'author_id'
+            'id'          => Module::t('module', 'ARTICLE_MODEL_ID'),
+            'title'       => Module::t('module', 'ARTICLE_MODEL_TITLE'),
+            'content'     => Module::t('module', 'ARTICLE_MODEL_CONTENT'),
+            'date'        => Module::t('module', 'ARTICLE_MODEL_DATE'),
+            'viewed'      => Module::t('module', 'ARTICLE_MODEL_VIEWED'),
+            'status'      => Module::t('module', 'ARTICLE_MODEL_STATUS'),
+            'category_id' => Module::t('module', 'ARTICLE_MODEL_CATEGORY_ID'),
+            'author_id'   => Module::t('module', 'ARTICLE_MODEL_AUTHOR_ID'),
         ];
     }
 }

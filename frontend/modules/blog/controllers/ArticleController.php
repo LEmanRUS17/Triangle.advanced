@@ -54,9 +54,9 @@ class ArticleController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $article  = Article::findOne($id);
+
+        return $this->render('view', compact('article'));
     }
 
     /**

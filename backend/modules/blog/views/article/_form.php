@@ -15,8 +15,6 @@ use app\modules\blog\Module;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'category_id')->textInput(['maxlength' => true]) ?>

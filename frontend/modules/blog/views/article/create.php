@@ -1,13 +1,14 @@
 <?php
 
 use yii\helpers\Html;
+use app\modules\blog\Module;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
 
-$this->title = 'Create Article';
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->title = Module::t('module', 'CREATE_ARTICLE_TITLE');
+//$this->params['breadcrumbs'][] = ['label' => Module::t('module', 'INDEX_ARTICLE_TITLE'), 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-create">
 

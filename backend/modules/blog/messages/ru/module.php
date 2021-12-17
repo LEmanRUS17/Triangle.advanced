@@ -16,7 +16,6 @@ return [
     // Атрибуты модели Article (Модуль blog):
     'ARTICLE_MODEL_ID'          => 'ID',
     'ARTICLE_MODEL_TITLE'       => 'Заголовок',
-    'ARTICLE_MODEL_DESCRIPTION' => 'Описание',
     'ARTICLE_MODEL_CONTENT'     => 'Содержание',
     'ARTICLE_MODEL_DATE'        => 'Дата и время создания',
     'ARTICLE_MODEL_VIEWED'      => 'Кол-во просмотров',
