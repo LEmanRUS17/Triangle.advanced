@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\models\ArticleSearch;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,11 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $data = ArticleSearch::getAll(2);
+
+        return $this->render('index', [
+            'articles'   => $data['articles'],
+            'pagination' => $data['pagination'],
+        ]);
     }
 }

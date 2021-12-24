@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\blog\Module;
+use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,9 +16,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 15
-    ]) ?>
-
+    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ],
+    ]); ?>
 <!--    --><?php //echo $form->field($model, 'category_id')
 //        ->dropdownList(
 //            Category::find() // Создание выпадающего списка | Получение записей из таблицы Category

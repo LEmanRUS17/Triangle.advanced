@@ -1145,14 +1145,14 @@ ul.elements li > i{
   margin: 0 10px;
 }
 
-.pagination li a{
+.pagination li a, .pagination li span{
   color: #000;
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #fff;
 }
 
-.pagination li:first-child a{
+.pagination li:first-child a, .pagination li:first-child span{
   background: url(../images/portfolio/left.png);
   background-repeat: no-repeat;
   text-indent: -999999999px;
@@ -1166,7 +1166,7 @@ ul.elements li > i{
   transition: 300ms;
 }
 
-.pagination li:first-child a:hover{
+.pagination li:first-child a:hover, .pagination li:first-child span:hover{
   background: url(../images/portfolio/left.png);
   background-position: center top -37px;
   background-repeat: no-repeat;
@@ -1176,7 +1176,7 @@ ul.elements li > i{
   transition: 300ms;
 }
 
-.pagination li:last-child a{
+.pagination li:last-child a, .pagination li:last-child span{
   background: url(../images/portfolio/right.png);
   background-repeat: no-repeat;
   text-indent: -999999999px;
@@ -1190,7 +1190,7 @@ ul.elements li > i{
   transition: 300ms;
 }
 
-.pagination li:last-child a:hover{
+.pagination li:last-child a:hover, .pagination li:last-child span:hover{
   background: url(../images/portfolio/right.png);
   background-position: center top -37px;
   background-repeat: no-repeat;
@@ -1205,7 +1205,14 @@ ul.elements li > i{
 .pagination a:active, 
 .pagination .active a:hover,
 .pagination .active a:focus, 
-.pagination a:focus {
+.pagination a:focus,
+.pagination li span:hover,
+.pagination .active span,
+.pagination span:active,
+.pagination .active span:hover,
+.pagination .active span:focus,
+.pagination span:focus
+{
   background: transparent;
   border-color: #C03035;
   color: #C03035;
