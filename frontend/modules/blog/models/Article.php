@@ -1,7 +1,7 @@
 <?php
 
 namespace app\modules\blog\models;
-
+use app\modules\blog\models\Comment;
 use app\modules\blog\Module;
 use Yii;
 
@@ -61,4 +61,24 @@ class Article extends \yii\db\ActiveRecord
             'author_id'   => Module::t('module', 'ARTICLE_MODEL_AUTHOR_ID'),
         ];
     }
+
+    /* --- Coment --- */
+    /**
+     * Создание связи с таблицей comment.
+     * @return \yii\db\ActiveQuery
+     */
+    public function getComments()
+    {
+        return $this->hasMany(Comment::class, ['article_id' => 'id']);
+    }
+
+    /**
+     * Получение коминтариев со статусом 1
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public function getArticleComment($id)
+    {
+        return $this->getComments()->where(['status' => 1, 'article_id' => $id ])->all();
+    }
+    /* --- /Coment --- */
 }

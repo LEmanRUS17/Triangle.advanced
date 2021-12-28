@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\modules\blog\models\CommentForm;
+use Yii;
 /**
  * ArticleController implements the CRUD actions for Article model.
  */
@@ -56,7 +58,11 @@ class ArticleController extends Controller
     {
         $article  = Article::findOne($id);
 
-        return $this->render('view', compact('article'));
+        $comments = $article->getArticleComment($id);  // получить список коментариев
+        //print_r($comments); exit;
+        $commentForm = new CommentForm();
+
+        return $this->render('view', compact('article', 'comments', 'commentForm'));
     }
 
     /**
@@ -129,5 +135,25 @@ class ArticleController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /**
+     * Получить коментарии
+     * @param $id
+     * @return \yii\web\Response
+     */
+    public function actionComment($id)
+    {
+        $model = new CommentForm();
+
+        if(Yii::$app->request->isPost)
+        {
+            $model->load(Yii::$app->request->post());
+
+            if($model->saveComment($id))
+            {
+                return $this->redirect(['post', 'id' => $id]);
+            }
+        }
     }
 }

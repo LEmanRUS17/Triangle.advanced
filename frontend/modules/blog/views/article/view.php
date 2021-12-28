@@ -66,7 +66,7 @@ use app\modules\blog\Module;
                                     </div>
                                 </div>
 
-                                <?= $this->render('inc/response_area') ?>
+                                <?= $this->render('inc/response_area', compact('comments')) ?>
                             </div>
                         </div>
                     </div>
