@@ -81,4 +81,20 @@ class Article extends \yii\db\ActiveRecord
         return $this->getComments()->where(['status' => 1, 'article_id' => $id ])->all();
     }
     /* --- /Coment --- */
+
+    /* --- Category --- */
+    public function getCategory() // Создание связи с таблицей category
+    {
+        return $this->hasOne(Category::class, ['id' => 'category_id']); // Создание связи
+    }
+
+    public function saveCategory($category_id) // Сохранить категорию
+    {
+        $category = Category::findOne($category_id); // получение категории
+        if($category != null) { // Если категория не равна null
+            $this->link('category', $category); // Передача связи
+            return true;
+        }
+    }
+    /* --- /Category ---*/
 }

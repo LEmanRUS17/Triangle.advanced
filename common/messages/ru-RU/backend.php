@@ -27,6 +27,7 @@ return [
     'NAV_LOGOUT' => 'Выход',
     'NAV_HOME'   => 'Главная',
     'NAV_USER'   => 'Список пользователей',
+    'NAV_CATEGORY' => 'Категории',
 
     // Кнопки:
     'BUTTON_LOGIN' => 'Войти',

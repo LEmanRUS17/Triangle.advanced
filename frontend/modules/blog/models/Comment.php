@@ -91,4 +91,9 @@ class Comment extends \yii\db\ActiveRecord
     {
         return Yii::$app->formatter->asDate($this->date, 'php:d M Y | g:i');
     }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
 }

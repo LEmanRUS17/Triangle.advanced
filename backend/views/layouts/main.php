@@ -38,6 +38,7 @@ AppAsset::register($this);
         ['label' => Yii::t('backend', 'NAV_HOME'), 'url' => ['/site/index']],
         ['label' => Yii::t('backend', 'NAV_BLOG'), 'url' => ['/blog/article/index']],
         ['label' => Yii::t('backend', 'NAV_USER'), 'url' => ['/user/user/index']],
+        ['label' => Yii::t('backend', 'NAV_CATEGORY'), 'url' => ['/blog/category/index']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => Yii::t('backend', 'NAV_LOGIN'), 'url' => ['/site/login']];

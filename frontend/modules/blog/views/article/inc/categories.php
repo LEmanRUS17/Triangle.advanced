@@ -1,13 +1,17 @@
+<?php
+
+use app\modules\blog\models\Category;
+use app\modules\blog\Module;
+
+$categories = Category::getAll();    // Получение всех категорий
+
+?>
+
 <div class="sidebar-item categories">
-    <h3>Categories</h3>
+    <h3><?= Module::t('module', 'CATEGORIES')?></h3>
     <ul class="nav navbar-stacked">
-        <li><a href="#">Lorem ipsum<span class="pull-right">(1)</span></a></li>
-        <li class="active"><a href="#">Dolor sit amet<span class="pull-right">(8)</span></a></li>
-        <li><a href="#">Adipisicing elit<span class="pull-right">(4)</span></a></li>
-        <li><a href="#">Sed do<span class="pull-right">(9)</span></a></li>
-        <li><a href="#">Eiusmod<span class="pull-right">(3)</span></a></li>
-        <li><a href="#">Mockup<span class="pull-right">(4)</span></a></li>
-        <li><a href="#">Ut enim ad minim <span class="pull-right">(2)</span></a></li>
-        <li><a href="#">Veniam, quis nostrud <span class="pull-right">(8)</span></a></li>
+        <?php foreach ($categories as $category) : ?>
+            <li><a href="#"><?= $category->title ?><span class="pull-right">(<?= $category->getArticlesCount(); ?>)</span></a></li>
+        <?php endforeach; ?>
     </ul>
 </div>

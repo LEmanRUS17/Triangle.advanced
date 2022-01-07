@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\blog\models\Category;
 use app\modules\blog\Module;
 use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
@@ -32,8 +33,15 @@ use yii\widgets\ActiveForm;
 //        ); // Опции элемента
 //    ?>
 
-    <?= $form->field($model, 'category_id')->textInput(['maxlength' => true]) ?>
-
+    <?php echo $form->field($model, 'category_id')
+        ->dropdownList(
+            Category::find() // Создание выпадающего списка | Получение записей из таблицы Category
+            ->select(['title', 'id'])   // Получение данных из столбцов title и id
+            ->indexBy('id')             // Имя столбца, по которому должны индексироваться результаты запроса.
+            ->column(),
+            ['prompt' => 'Выберите категорию:']
+        ); // Опции элемента
+    ?>
     <div class="form-group">
         <?= Html::submitButton(Module::t('module', '_FORM_SAVE'), ['class' => 'btn btn-success']) ?>
     </div>

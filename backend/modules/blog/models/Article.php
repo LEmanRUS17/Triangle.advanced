@@ -3,7 +3,6 @@
 namespace app\modules\blog\models;
 
 use app\modules\blog\Module;
-use Yii;
 
 /**
  * This is the model class for table "article".

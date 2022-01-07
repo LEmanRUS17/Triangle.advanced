@@ -1,4 +1,6 @@
 <?php
+
+    use app\modules\blog\models\Comment;
     use app\modules\blog\Module;
     use yii\helpers\Url;
 
@@ -45,9 +47,9 @@
                                 <a href="<?= URL::toRoute(['article/view', 'id' => $article->id]) ?>" class="read-more"><?= Module::t('module', 'READ_ARTICLE')?></a>
                                 <div class="post-bottom overflow">
                                     <ul class="nav navbar-nav post-nav">
-                                        <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>
-                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i>3 Comments</a></li>
+<!--                                        <li><a href="#"><i class="fa fa-tag"></i>Creative</a></li>-->
+<!--                                        <li><a href="#"><i class="fa fa-heart"></i>32 Love</a></li>-->
+                                        <li><a href="#"><i class="fa fa-comments"></i><?= Module::t('module', 'ARTICLE_COMMENTS') . ': '?> <?= Comment::numberOfComments($article->id) ?> </a></li>
                                     </ul>
                                 </div>
                             </div>

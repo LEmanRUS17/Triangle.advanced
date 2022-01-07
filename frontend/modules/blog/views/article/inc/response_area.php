@@ -1,5 +1,8 @@
 <?php
-    use app\modules\blog\Module;
+
+use app\modules\blog\models\User;
+use app\modules\blog\Module;
+
 ?>
 <div class="response-area">
     <h2 class="bold">Comments</h2>
@@ -38,13 +41,14 @@
         <?php if (!empty($comments)) : ?>
             <h3>Коментарии</h3>
             <?php foreach ($comments as $comment) : ?>
+            <?php $author = User::findOne($article->author_id); ?>
             <li class="media">
                 <div class="post-comment">
 <!--                    <a class="pull-left" href="#">-->
 <!--                        <img class="media-object" src="/images/blogdetails/4.png" alt="">-->
 <!--                    </a>-->
                     <div class="media-body">
-                        <span><i class="fa fa-user"></i><?= Module::t('module', 'VIEW_ARTICLE_AUTHOR') . ': ' ?><a href="#"><?= $comment->user_id ?></a></span>
+                        <span><i class="fa fa-user"></i><?= Module::t('module', 'VIEW_ARTICLE_AUTHOR') . ': ' ?><a href="#"><?= $comment->user->username; ?></a></span>
                         <p><?= $comment->text ?></p>
                         <ul class="nav navbar-nav post-nav">
                             <li><a href="#"><i class="fa fa-clock-o"></i><?= $comment->getDate(); ?></a></li>

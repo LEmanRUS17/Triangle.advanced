@@ -24,5 +24,7 @@ return [
     'VIEW_ARTICLE_RIGHT_PANEL' => 'Блог с правой боковой панелью',
     'VIEW_ARTICLE_AUTHOR'      => 'Автор',
     'READ_ARTICLE'             => 'Читать далее',
+    'ARTICLE_COMMENTS'         => 'Количество коментариев',
+    'CATEGORIES'               => 'Категории',
 
 ];
